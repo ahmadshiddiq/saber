@@ -37,7 +37,7 @@ export function PlayerTableAction() {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
-				<Button>Action</Button>
+				<Button variant="secondary">Action</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>

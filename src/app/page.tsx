@@ -4,12 +4,13 @@ import { PlayerTable } from "~/app/_components/playerTable";
 import { ReplaceTeam } from "~/app/_components/replaceTeam";
 import { TeamSize } from "~/app/_components/teamSize";
 import { TeamTable } from "~/app/_components/teamTable";
+import { Separator } from "~/components/ui/separator";
 import { HydrateClient } from "~/trpc/server";
 
 export default async function Home() {
 	return (
 		<HydrateClient>
-			<main className="container mx-auto grid grid-cols-2 gap-6 p-8">
+			<main className="container mx-auto flex flex-col gap-6 p-8">
 				<div className="col-span-2">
 					<h1 className="text-center font-semibold text-2xl text-slate-700">
 						Saber Football Management
@@ -18,21 +19,15 @@ export default async function Home() {
 
 				<TeamTable teamName="A" />
 				<TeamTable teamName="B" />
-
-				<div className="col-span-2">
-					<PlayerTable />
+				<Separator />
+				<PlayerTable />
+				<AddPlayer />
+				<Separator />
+				<div className="grid grid-cols-2 gap-4">
+					<DistributeTeam />
+					<ReplaceTeam />
 				</div>
-
-				<div className="col-span-2">
-					<AddPlayer />
-				</div>
-
-				<DistributeTeam />
-				<ReplaceTeam />
-
-				<div className="col-span-2">
-					<TeamSize />
-				</div>
+				<TeamSize />
 			</main>
 		</HydrateClient>
 	);
