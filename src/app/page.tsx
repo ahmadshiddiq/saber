@@ -9,7 +9,13 @@ import { HydrateClient } from "~/trpc/server";
 export default async function Home() {
 	return (
 		<HydrateClient>
-			<main className="container mx-auto grid grid-cols-2 gap-4 p-8">
+			<main className="container mx-auto grid grid-cols-2 gap-6 p-8">
+				<div className="col-span-2">
+					<h1 className="text-center font-semibold text-2xl text-slate-700">
+						Saber Football Management
+					</h1>
+				</div>
+
 				<TeamTable teamName="A" />
 				<TeamTable teamName="B" />
 

@@ -25,6 +25,10 @@ const radioOptions = [
 		label: "Skip Turn",
 		value: "skip_turn",
 	},
+	{
+		label: "Remove",
+		value: "remove",
+	},
 ];
 
 export function PlayerTableAction() {
