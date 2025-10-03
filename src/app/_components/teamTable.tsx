@@ -20,7 +20,7 @@ export function TeamTable(props: Props) {
 			<TableHeader>
 				<TableRow>
 					<TableHead>Name</TableHead>
-					<TableHead>Play Count</TableHead>
+					<TableHead>Played</TableHead>
 					<TableHead className="w-10" />
 				</TableRow>
 			</TableHeader>
