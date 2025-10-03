@@ -9,10 +9,14 @@ import {
 	TableRow,
 } from "~/components/ui/table";
 
-export function TeamTable() {
+interface Props {
+	teamName?: string;
+}
+
+export function TeamTable(props: Props) {
 	return (
 		<Table>
-			<TableCaption>Team A</TableCaption>
+			<TableCaption>Team {props.teamName}</TableCaption>
 			<TableHeader>
 				<TableRow>
 					<TableHead>Name</TableHead>

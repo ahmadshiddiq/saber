@@ -8,14 +8,17 @@ import { HydrateClient } from "~/trpc/server";
 export default async function Home() {
 	return (
 		<HydrateClient>
-			<main className="grid grid-cols-2 gap-4 p-8">
-				<TeamTable />
-				<TeamTable />
+			<main className="container mx-auto grid grid-cols-2 gap-4 p-8">
+				<TeamTable teamName="A" />
+				<TeamTable teamName="B" />
+
 				<div className="col-span-2">
 					<PlayerTable />
 				</div>
+
 				<DistributeTeam />
 				<ReplaceTeam />
+
 				<div className="col-span-2">
 					<TeamSize />
 				</div>
