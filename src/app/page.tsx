@@ -1,3 +1,4 @@
+import { AddPlayer } from "~/app/_components/addPlayer";
 import { DistributeTeam } from "~/app/_components/distributeTeam";
 import { PlayerTable } from "~/app/_components/playerTable";
 import { ReplaceTeam } from "~/app/_components/replaceTeam";
@@ -14,6 +15,10 @@ export default async function Home() {
 
 				<div className="col-span-2">
 					<PlayerTable />
+				</div>
+
+				<div className="col-span-2">
+					<AddPlayer />
 				</div>
 
 				<DistributeTeam />
