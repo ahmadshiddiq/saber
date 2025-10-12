@@ -1,10 +1,11 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
-
-import Header from '../components/Header'
+import {createRootRoute, HeadContent, Scripts} from '@tanstack/react-router'
+import {TanStackRouterDevtoolsPanel} from '@tanstack/react-router-devtools'
+import {TanStackDevtools} from '@tanstack/react-devtools'
 
 import appCss from '../styles.css?url'
+import {SidebarInset, SidebarProvider} from "@/components/ui/sidebar.tsx";
+import {AppSidebar} from "@/components/app-sidebar.tsx";
+import {AppHeader} from "@/components/app-header.tsx";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -17,7 +18,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Saber Squad',
       },
     ],
     links: [
@@ -31,28 +32,34 @@ export const Route = createRootRoute({
   shellComponent: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({children}: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <Header />
+    <head>
+      <HeadContent/>
+    </head>
+    <body>
+    <SidebarProvider>
+      <AppSidebar/>
+      <SidebarInset>
+        <AppHeader/>
         {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
-        <Scripts />
-      </body>
+      </SidebarInset>
+    </SidebarProvider>
+
+    <TanStackDevtools
+      config={{
+        position: 'bottom-right',
+      }}
+      plugins={[
+        {
+          name: 'Tanstack Router',
+          render: <TanStackRouterDevtoolsPanel/>,
+        },
+      ]}
+    />
+    <Scripts/>
+    </body>
     </html>
   )
 }
